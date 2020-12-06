@@ -1,0 +1,66 @@
+
+{
+  "title": "Static - Multiple Pages - Custom Content Entries - No Restrictions",
+  
+  "vhosts": [
+    {
+      "root": "./static-multiple-pages",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1",
+            "property": "title"
+          },
+          {
+            "selector": "p.classA",
+            "property": "data-p"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "main title", "main title" ],
+        "p.classA": ["data main1", "data main2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/pageA.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "titleA", "titleA" ],
+        "p.classA": ["data pageA1", "data pageA2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/b/pageB.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "titleB", "titleB" ],
+        "p.classA": ["data pageB1", "data pageB2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/c/pageC.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "titleC", "titleC" ],
+        "p.classA": ["data pageC1", "data pageC2"]
+      }
+    }
+  ]
+}
