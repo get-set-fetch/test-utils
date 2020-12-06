@@ -1,0 +1,34 @@
+
+{
+  "title": "Static - Single Page - Single Content Entry",
+  
+  "vhosts": [
+    {
+      "root": "./static-single-page",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": { "h1": [ "Main Header 1" ] }
+    }
+  ]
+}
