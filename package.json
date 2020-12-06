@@ -1,7 +1,7 @@
 {
-  "name": "gsf-test-utils",
+  "name": "get-set-fetch-test-utils",
   "version": "0.1.0",
-  "description": "gsf-test-utils",
+  "description": "get-set-fetch-test-utils",
   "main": "lib/index.ts",
   "files": [
     "lib"
