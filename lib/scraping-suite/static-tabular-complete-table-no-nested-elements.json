@@ -1,0 +1,40 @@
+
+{
+  "title": "Static - Tabular - Complete Table - No Nested Elements",
+  
+  "vhosts": [
+    {
+      "root": "./static-tabular",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/complete-table-no-nested-elements.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "table#t tr td:nth-child(1)"
+          },
+          {
+            "selector": "table#t tr td:nth-child(2)"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/complete-table-no-nested-elements.html",
+      "contentType": "text/html",
+      "content": { 
+        "table#t tr td:nth-child(1)": [ "valA1", "valA2", "valA3", "valA4" ],
+        "table#t tr td:nth-child(2)": [ "valB1", "valB2", "valB3", "valB4" ]
+      }
+    }
+  ]
+}
