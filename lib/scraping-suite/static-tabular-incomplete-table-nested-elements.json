@@ -1,0 +1,40 @@
+
+{
+  "title": "Static - Tabular - Incomplete Table - Nested Elements",
+  
+  "vhosts": [
+    {
+      "root": "./static-tabular",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/incomplete-table-nested-elements.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "table#t tr td:nth-child(1) span"
+          },
+          {
+            "selector": "table#t tr td:nth-child(2) p"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/incomplete-table-nested-elements.html",
+      "contentType": "text/html",
+      "content": { 
+        "table#t tr td:nth-child(1) span": [ "", "valA3" ],
+        "table#t tr td:nth-child(2) p": [ "valB1", "" ]
+      }
+    }
+  ]
+}
