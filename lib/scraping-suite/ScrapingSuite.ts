@@ -44,19 +44,21 @@ export default class ScrapingSuite {
   static checkResources(actualResources: IScrapingResource[], expectedResources: IScrapingResource[]) {
     assert.strictEqual(actualResources.length, expectedResources.length);
     expectedResources.forEach(expectedResource => {
-      //console.log(expectedResource.url);
-      //console.log(actualResources.map(r => r.url))
       const actualResource = actualResources.find(actualResource => actualResource.url === expectedResource.url);
       if (!actualResource) throw new Error(`url ${expectedResource.url} not scraped`);
 
-      assert.strictEqual(actualResource.contentType, expectedResource.contentType);
-      /*
-      console.log("--");
-      console.log(JSON.stringify(actualResource.content));
-      console.log(JSON.stringify(expectedResource.content));
-      console.log("--");
-      */
-      assert.deepEqual(actualResource.content, expectedResource.content);
+      const checkScalarProps = ["contentType" ];
+      const checkObjProps = ["content", "parent"];
+
+      checkScalarProps.forEach(scalarProp => {
+        assert.strictEqual(actualResource[scalarProp], expectedResource[scalarProp], `${scalarProp} doesn't match`);
+      });
+
+      checkObjProps.forEach(objProp => {
+        if (expectedResource[objProp]) {
+          assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${objProp} doesn't match`);
+        }
+      })
     });
   }
 
