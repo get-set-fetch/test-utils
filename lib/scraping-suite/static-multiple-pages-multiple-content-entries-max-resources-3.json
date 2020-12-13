@@ -1,0 +1,60 @@
+
+{
+  "title": "Static - Multiple Pages - Multiple Content Entries - Max Resources 3 (partial save of newly discovered resources)",
+  
+  "vhosts": [
+    {
+      "root": "./static-multiple-pages",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1"
+          },
+          {
+            "selector": "p.classA"
+          }
+        ]
+      },
+      {
+        "name": "InsertResourcesPlugin",
+        "maxResources": 3
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "Main H1", "Main H1" ],
+        "p.classA": ["main p1", "main p2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/pageA.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "PageA H1", "PageA H1" ],
+        "p.classA": ["pageA p1", "pageA p2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/b/pageB.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "PageB H1", "PageB H1" ],
+        "p.classA": ["pageB p1", "pageB p2"]
+      }
+    }
+  ]
+}

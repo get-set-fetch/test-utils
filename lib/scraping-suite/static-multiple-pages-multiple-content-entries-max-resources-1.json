@@ -1,0 +1,44 @@
+
+{
+  "title": "Static - Multiple Pages - Multiple Content Entries - Max Resources 1",
+  
+  "vhosts": [
+    {
+      "root": "./static-multiple-pages",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1"
+          },
+          {
+            "selector": "p.classA"
+          }
+        ]
+      },
+      {
+        "name": "InsertResourcesPlugin",
+        "maxResources": 1
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "Main H1", "Main H1" ],
+        "p.classA": ["main p1", "main p2"]
+      }
+    }
+  ]
+}
