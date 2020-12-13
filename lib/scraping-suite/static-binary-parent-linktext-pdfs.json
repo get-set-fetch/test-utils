@@ -1,0 +1,67 @@
+
+{
+  "title": "Static - Binary - Extract PDFs - Named after parent linkText",
+  
+  "vhosts": [
+    {
+      "root": "./binary",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractUrlsPlugin",
+        "selectorPairs": [
+          { 
+            "urlSelector": "a[href$='.html']"
+          },
+          { 
+            "urlSelector": "a[href$='.pdf']"
+          }
+        ]
+      },
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": {},
+      "parent": null
+    },
+    {
+      "url": "http://sitea.com/b/b.html",
+      "contentType": "text/html",
+      "content": {},
+      "parent": {
+        "linkText":"nested"
+      }
+    },
+    {
+      "url": "http://sitea.com/pdf/pdfA-150.pdf",
+      "contentType": "application/pdf",
+      "content": null,
+      "parent": {
+        "linkText":"pdf A"
+      }
+    },
+    {
+      "url": "http://sitea.com/pdf/pdfB-850.pdf",
+      "contentType": "application/pdf",
+      "content": null,
+      "parent": {
+        "linkText":"pdf B"
+      }
+    }
+  ]
+}
