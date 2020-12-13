@@ -58,7 +58,7 @@ export default class ScrapingSuite {
         if (expectedResource[objProp]) {
           assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${objProp} doesn't match`);
         }
-      })
+      });
     });
   }
 
