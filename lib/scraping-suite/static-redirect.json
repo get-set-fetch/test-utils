@@ -1,0 +1,39 @@
+
+{
+  "title": "Static - Redirect",
+  
+  "vhosts": [
+    {
+      "root": "./redirect",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/redirect-pageA.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/redirect-pageA.html",
+      "contentType": null,
+      "content": null
+    },
+    {
+      "url": "http://sitea.com/pageA.html",
+      "contentType": "text/html",
+      "content": { "h1": [ "pageA redirect" ] }
+    }
+  ]
+}
