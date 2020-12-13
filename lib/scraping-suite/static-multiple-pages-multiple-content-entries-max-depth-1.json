@@ -1,0 +1,52 @@
+
+{
+  "title": "Static - Multiple Pages - Multiple Content Entries - Max Depth 1",
+  
+  "vhosts": [
+    {
+      "root": "./static-multiple-pages",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/index.html",
+    "scenario": "ScrapeStaticContent",
+    "pluginOpts": [
+      {
+        "name": "ExtractUrlsPlugin",
+        "maxDepth": 1
+      },
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "h1"
+          },
+          {
+            "selector": "p.classA"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/index.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "Main H1", "Main H1" ],
+        "p.classA": ["main p1", "main p2"]
+      }
+    },
+    {
+      "url": "http://sitea.com/pageA.html",
+      "contentType": "text/html",
+      "content": { 
+        "h1": [ "PageA H1", "PageA H1" ],
+        "p.classA": ["pageA p1", "pageA p2"]
+      }
+    }
+  ]
+}
