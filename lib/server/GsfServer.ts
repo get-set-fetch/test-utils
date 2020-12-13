@@ -1,7 +1,7 @@
 import connect from 'connect';
 import serveStatic from 'serve-static';
 import vhost from 'vhost';
-import http from 'http';
+import http, { IncomingMessage, ServerResponse } from 'http';
 
 export interface IVirtualHost {
   hostname: string;
@@ -48,12 +48,31 @@ export default class GsfServer {
     virtualHosts.forEach(virtualHost => {
       const vhostApp = connect();
 
+      vhostApp.use(this.redirect);
       vhostApp.use(serveStatic(virtualHost.root, virtualHost.staticOpts));
 
       this.connApp.use(<any>vhost(virtualHost.hostname, vhostApp));
-      //this.connApp.use(serveStatic(virtualHost.root, virtualHost.staticOpts));
+      
       console.log(`serving ${virtualHost.hostname} from ${virtualHost.root}`);
     })
+
+  
+  }
+
+  /*
+  redirect all /dir/redirect-page.html req to /dir/page.html
+  some integration tests make use of this functionality to test the scraper redirect handling capabilities
+  */
+  redirect(req: IncomingMessage, res: ServerResponse, next:  connect.NextFunction) {
+    if (/redirect-/.test(req.url)) {
+      const targetUrl = req.url.replace(/redirect-/, '');
+      res.statusCode = 301;
+      res.setHeader('Location', targetUrl);
+      res.end();
+    }
+    else {
+      next();
+    }
   }
 
   stop() {
