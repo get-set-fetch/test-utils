@@ -12,7 +12,7 @@ describe('ScrapingSuite', () => {
 
     const expectedDefinition = {
       url: "http://sitea.com/redirect-pageA.html",
-      scenario: "ScrapeStaticContent",
+      scenario: "static-content",
       pluginOpts: [
         {
           name: "ExtractHtmlContentPlugin",

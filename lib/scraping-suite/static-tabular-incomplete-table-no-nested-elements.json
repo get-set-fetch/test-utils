@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/incomplete-table-no-nested-elements.html",
-    "scenario": "ScrapeStaticContent",
+    "scenario": "static-content",
     "pluginOpts": [
       {
         "name": "ExtractHtmlContentPlugin",
