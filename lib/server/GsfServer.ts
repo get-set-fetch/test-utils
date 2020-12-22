@@ -52,8 +52,6 @@ export default class GsfServer {
       vhostApp.use(serveStatic(virtualHost.root, virtualHost.staticOpts));
 
       this.connApp.use(<any>vhost(virtualHost.hostname, vhostApp));
-      
-      console.log(`serving ${virtualHost.hostname} from ${virtualHost.root}`);
     })
 
   
