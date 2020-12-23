@@ -36,13 +36,13 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": {},
+      "content": null,
       "parent": null
     },
     {
       "url": "http://sitea.com/b/b.html",
       "contentType": "text/html",
-      "content": {},
+      "content": null,
       "parent": {
         "linkText":"nested"
       }
