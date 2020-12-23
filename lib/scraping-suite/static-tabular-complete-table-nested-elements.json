@@ -31,10 +31,12 @@
     {
       "url": "http://sitea.com/complete-table-nested-elements.html",
       "contentType": "text/html",
-      "content": { 
-        "table#t tr td:nth-child(1) span": [ "valA1", "valA2", "valA3", "valA4" ],
-        "table#t tr td:nth-child(2) p": [ "valB1", "valB2", "valB3", "valB4" ]
-      }
+      "content": [
+        ["valA1", "valB1"],
+        ["valA2", "valB2"],
+        ["valA3", "valB3"],
+        ["valA4", "valB4"]
+      ]
     }
   ]
 }

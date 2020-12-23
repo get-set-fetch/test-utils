@@ -15,7 +15,7 @@ export interface IScrapingDefinition {
 export interface IScrapingResource {
   url: string;
   contentType: string;
-  content: {[key: string]: string[]};
+  content: string[][];
 }
 
 export interface IScrapingTest {

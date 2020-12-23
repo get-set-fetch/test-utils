@@ -31,10 +31,10 @@
     {
       "url": "http://sitea.com/incomplete-table-nested-elements.html",
       "contentType": "text/html",
-      "content": { 
-        "table#t tr td:nth-child(1) span": [ "", "valA3" ],
-        "table#t tr td:nth-child(2) p": [ "valB1", "" ]
-      }
+      "content": [
+        ["", "valB1"],
+        ["valA3", ""]
+      ]
     }
   ]
 }

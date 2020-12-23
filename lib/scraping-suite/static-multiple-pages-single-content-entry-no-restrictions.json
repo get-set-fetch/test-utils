@@ -28,22 +28,22 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { "h1": [ "Main H1" ] }
+      "content": [ [ "Main H1" ] ]
     },
     {
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
-      "content": { "h1": [ "PageA H1" ] }
+      "content": [ [ "PageA H1" ] ]
     },
     {
       "url": "http://sitea.com/b/pageB.html",
       "contentType": "text/html",
-      "content": { "h1": [ "PageB H1" ] }
+      "content": [ [ "PageB H1" ] ]
     },
     {
       "url": "http://sitea.com/c/pageC.html",
       "contentType": "text/html",
-      "content": { "h1": [ "PageC H1" ] }
+      "content": [ [ "PageC H1" ] ]
     }
   ]
 }

@@ -35,10 +35,10 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "Main H1", "Main H1" ],
-        "p.classA": ["main p1", "main p2"]
-      }
+      "content": [
+        ["Main H1", "main p1"],
+        ["Main H1", "main p2"]
+      ]
     }
   ]
 }

@@ -35,18 +35,18 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "Main H1", "Main H1" ],
-        "p.classA": ["main p1", "main p2"]
-      }
+      "content": [
+        ["Main H1", "main p1"],
+        ["Main H1", "main p2"]
+      ]
     },
     {
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "PageA H1", "PageA H1" ],
-        "p.classA": ["pageA p1", "pageA p2"]
-      }
+      "content": [
+        ["PageA H1", "pageA p1"],
+        ["PageA H1", "pageA p2"]
+      ]
     }
   ]
 }

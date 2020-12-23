@@ -33,7 +33,7 @@
     {
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
-      "content": { "h1": [ "pageA redirect" ] }
+      "content": [ [ "pageA redirect" ] ]
     }
   ]
 }

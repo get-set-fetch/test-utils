@@ -28,7 +28,7 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { "h1": [ "Main Header 1" ] }
+      "content": [  [ "Main Header 1" ] ]
     }
   ]
 }

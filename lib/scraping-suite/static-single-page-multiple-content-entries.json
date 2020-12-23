@@ -31,10 +31,10 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "Main Header 1","Main Header 1"],
-        "i.classA": ["italics 1", "italics 2"]
-      }
+      "content": [
+        ["Main Header 1", "italics 1"],
+        ["Main Header 1", "italics 2"]
+      ]
     }
   ]
 }

@@ -31,10 +31,11 @@
     {
       "url": "http://sitea.com/incomplete-table-no-nested-elements.html",
       "contentType": "text/html",
-      "content": { 
-        "table#t tr td:nth-child(1)": [ "valA1", "valA2", "valA3" ],
-        "table#t tr td:nth-child(2)": [ "valB1", "", "valB3" ]
-      }
+      "content": [
+        ["valA1", "valB1"],
+        ["valA2", ""],
+        ["valA3", "valB3"]
+      ]
     }
   ]
 }

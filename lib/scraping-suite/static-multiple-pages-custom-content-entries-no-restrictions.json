@@ -33,34 +33,34 @@
     {
       "url": "http://sitea.com/index.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "main title", "main title" ],
-        "p.classA": ["data main1", "data main2"]
-      }
+      "content": [
+        ["main title", "data main1"],
+        ["main title", "data main2"]
+      ]
     },
     {
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "titleA", "titleA" ],
-        "p.classA": ["data pageA1", "data pageA2"]
-      }
+      "content": [
+        ["titleA", "data pageA1"],
+        ["titleA", "data pageA2"]
+      ]
     },
     {
       "url": "http://sitea.com/b/pageB.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "titleB", "titleB" ],
-        "p.classA": ["data pageB1", "data pageB2"]
-      }
+      "content": [
+        ["titleB", "data pageB1"],
+        ["titleB", "data pageB2"]
+      ]
     },
     {
       "url": "http://sitea.com/c/pageC.html",
       "contentType": "text/html",
-      "content": { 
-        "h1": [ "titleC", "titleC" ],
-        "p.classA": ["data pageC1", "data pageC2"]
-      }
+      "content": [
+        ["titleC", "data pageC1"],
+        ["titleC", "data pageC2"]
+      ]
     }
   ]
 }
