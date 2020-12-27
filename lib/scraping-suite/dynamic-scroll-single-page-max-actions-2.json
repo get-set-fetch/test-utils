@@ -1,0 +1,53 @@
+
+{
+  "title": "Static - Scroll - Single Page - Max Actions 2",
+  
+  "vhosts": [
+    {
+      "root": "./scroll",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/scroll-contentA.html",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "p.entry span"
+          }
+        ]
+      },
+      {
+        "name": "ScrollPlugin",
+        "after": "UpsertResourcePlugin",
+        "stabilityCheck": 200,
+        "maxActions": 2
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "contentType": "text/html",
+      "content": null,
+      "actions": null
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "contentType": "text/html",
+      "content": [["contentA-0"]],
+      "actions": ["scroll#1"]
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "contentType": "text/html",
+      "content": [["contentA-1"]],
+      "actions": ["scroll#2"]
+    }
+  ]
+}

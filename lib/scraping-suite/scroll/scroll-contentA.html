@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>infinite scrolling scraping</title>
+</head>
+
+<body>
+  <h1>infinite scrolling scraping</h1>
+  <p style="height: 2500px">forcing scroll content</p>
+
+  <div id="content" />
+</body>
+<script>
+  // lazyload some content to the bottom of the page with a timeout simulating server side call delay
+  const loadMax = 3;
+  let loadNo = 0;
+
+  window.onscroll = function (event) {
+    // window.pageYOffset varies, not integer, take this into account
+    const scrollToBottom = Math.abs(document.body.scrollHeight - (window.pageYOffset + document.body.clientHeight));
+    if (loadNo < loadMax && scrollToBottom < 1) {
+      setTimeout(appendData, 1000);
+    }
+  };
+
+  function appendData() {
+    let html = `
+    <p class="entry" style="height: 1500px">
+      <span>contentA-${loadNo}</h5>
+    </p>`;
+
+    document.getElementById("content").innerHTML += html;
+    loadNo += 1;
+  }
+</script>
+
+</html>

@@ -1,0 +1,94 @@
+
+{
+  "title": "Static - Scroll - Multiple Pages - No Restrictions",
+  
+  "vhosts": [
+    {
+      "root": "./scroll",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/scroll-links.html",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "selector": "p.entry span"
+          }
+        ]
+      },
+      {
+        "name": "ScrollPlugin",
+        "after": "UpsertResourcePlugin",
+        "stabilityCheck": 200
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/scroll-links.html",
+      "actions": null,
+      "contentType": "text/html",
+      "content": []
+    },
+    {
+      "url": "http://sitea.com/scroll-links.html",
+      "actions": ["scroll#1"],
+      "contentType": "text/html",
+      "content": []
+    },
+    {
+      "url": "http://sitea.com/scroll-links.html",
+      "actions": ["scroll#2"],
+      "contentType": "text/html",
+      "content": []
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "actions": null,
+      "contentType": "text/html",
+      "content": []
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "actions": ["scroll#1"],
+      "contentType": "text/html",
+      "content": [["contentA-0"]]
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "actions": ["scroll#2"],
+      "contentType": "text/html",
+      "content": [["contentA-1"]]
+    },
+    {
+      "url": "http://sitea.com/scroll-contentA.html",
+      "actions": ["scroll#3"],
+      "contentType": "text/html",
+      "content": [["contentA-2"]]
+    },
+    {
+      "url": "http://sitea.com/scroll-contentB.html",
+      "actions": null,
+      "contentType": "text/html",
+      "content": []
+    },
+    {
+      "url": "http://sitea.com/scroll-contentB.html",
+      "actions": ["scroll#1"],
+      "contentType": "text/html",
+      "content": [["contentB-0"]]
+    },
+    {
+      "url": "http://sitea.com/scroll-contentB.html",
+      "actions": ["scroll#2"],
+      "contentType": "text/html",
+      "content": [["contentB-1"]]
+    }
+  ]
+}
