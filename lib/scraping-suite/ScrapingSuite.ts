@@ -16,6 +16,7 @@ export interface IScrapingResource {
   url: string;
   contentType: string;
   content: string[][];
+  actions: string[];
 }
 
 export interface IScrapingTest {
@@ -44,19 +45,34 @@ export default class ScrapingSuite {
   static checkResources(actualResources: IScrapingResource[], expectedResources: IScrapingResource[]) {
     assert.strictEqual(actualResources.length, expectedResources.length);
     expectedResources.forEach(expectedResource => {
-      const actualResource = actualResources.find(actualResource => actualResource.url === expectedResource.url);
-      if (!actualResource) throw new Error(`url ${expectedResource.url} not scraped`);
+      const actualResource = actualResources.find(actualResource => {
+        if (expectedResource.url !== actualResource.url) return false;
+        if (expectedResource.actions) {
+          if (!actualResource.actions) return false;
+          return expectedResource.actions.join(":") === actualResource.actions.join(":")
+        }
+
+        return true;
+      });
+      if (!actualResource) throw new Error(`url ${expectedResource.url}, actions ${expectedResource.actions} not scraped`);
 
       const checkScalarProps = ["contentType" ];
-      const checkObjProps = ["content", "parent"];
+      const checkArrayProps = ["content"]
+      const checkObjProps = ["parent"];
 
       checkScalarProps.forEach(scalarProp => {
-        assert.strictEqual(actualResource[scalarProp], expectedResource[scalarProp], `${scalarProp} doesn't match`);
+        assert.strictEqual(actualResource[scalarProp], expectedResource[scalarProp], `${scalarProp} scalar doesn't match`);
       });
 
       checkObjProps.forEach(objProp => {
         if (expectedResource[objProp]) {
-          assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${objProp} doesn't match`);
+          assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${objProp} obj doesn't match`);
+        }
+      });
+
+      checkArrayProps.forEach(arrayProp => {
+        if (expectedResource[arrayProp]) {
+          assert.sameDeepMembers(actualResource[arrayProp], expectedResource[arrayProp], `${arrayProp} array doesn't match`);
         }
       });
     });
