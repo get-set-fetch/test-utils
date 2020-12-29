@@ -1,6 +1,7 @@
 import {assert} from 'chai';
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
+import JSZip from 'jszip';
 import {IVirtualHost} from '../server/GsfServer';
 
 export interface IScrapingDefinition {
@@ -24,6 +25,7 @@ export interface IScrapingTest {
   vhosts: IVirtualHost[];
   definition: IScrapingDefinition;
   resources: IScrapingResource[];
+  archiveEntries: string[];
 }
 
 export default class ScrapingSuite {
@@ -76,6 +78,31 @@ export default class ScrapingSuite {
         }
       });
     });
+  }
+
+  static async checkArchiveEntries(archivePath: string, archiveEntries: string[]) {
+    const archiveContent = readFileSync(archivePath, 'binary');
+    const archive = await JSZip.loadAsync(archiveContent);
+
+    // check archive entries
+    // collect a png sample if possible
+    let pngSample:Uint8Array;
+    const actualEntries = await Promise.all(
+      Object.keys(archive.files).map(async name => {
+        const filename = archive.files[name].name;
+        if (/\.png$/.test(filename) && !pngSample) {
+          pngSample = await archive.files[name].async('uint8array');
+        }
+        return filename;
+      }),
+    );
+    assert.sameMembers(actualEntries, archiveEntries);
+
+    // if present, check the png sample
+    const pngHeader = [ 137, 80, 78, 71, 13, 10, 26, 10 ];
+    if (pngSample) {
+      assert.sameMembers(Array.from(pngSample.slice(0, 8).values()), pngHeader);
+    }
   }
 
 }

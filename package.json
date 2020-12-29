@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/connect": "^3.4.33",
+    "@types/jszip": "^3.4.1",
     "@types/mocha": "^8.0.3",
     "@types/node": "^14.14.7",
     "@types/serve-static": "^1.13.7",
@@ -26,6 +27,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "connect": "^3.7.0",
+    "jszip": "^3.5.0",
     "serve-static": "^1.14.1",
     "vhost": "^3.0.2"
   }

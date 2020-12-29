@@ -63,5 +63,10 @@
         "imgAlt":"img B"
       }
     }
+  ],
+
+  "archiveEntries": [
+    "img A.png",
+    "img B.png"
   ]
 }

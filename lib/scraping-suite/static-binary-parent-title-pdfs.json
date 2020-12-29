@@ -68,5 +68,10 @@
         "title":"nested page"
       }
     }
+  ],
+
+  "archiveEntries": [
+    "home page-pdf A.pdf",
+    "nested page-pdf B.pdf"
   ]
 }

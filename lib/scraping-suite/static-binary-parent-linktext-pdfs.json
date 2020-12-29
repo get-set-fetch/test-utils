@@ -63,5 +63,10 @@
         "linkText":"pdf B"
       }
     }
+  ],
+
+  "archiveEntries": [
+    "pdf A.pdf",
+    "pdf B.pdf"
   ]
 }
