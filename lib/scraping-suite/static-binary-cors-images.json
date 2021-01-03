@@ -1,0 +1,59 @@
+
+{
+  "title": "Static - Binary - Extract Images - CORS",
+  
+  "vhosts": [
+    {
+      "root": "./binary",
+      "hostname": "sitea.com"
+    },
+    {
+      "root": "./binary/img",
+      "hostname": "siteb.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/cors.html",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractUrlsPlugin",
+        "selectorPairs": [
+          { 
+            "urlSelector": "a[href$='.html']"
+          },
+          { 
+            "urlSelector": "img"
+          }
+        ]
+      },
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/cors.html",
+      "contentType": "text/html",
+      "content": null,
+      "parent": null
+    },
+    {
+      "url": "http://siteb.com/imgA-150.png",
+      "contentType": "image/png",
+      "content": null,
+      "parent": {
+        "imgAlt":"img A"
+      }
+    }
+  ],
+
+  "archiveEntries": [
+    "img A.png"
+  ]
+}
