@@ -1,0 +1,63 @@
+
+{
+  "title": "Static - Binary - URI Normalization - No Extensions",
+  
+  "vhosts": [
+    {
+      "root": "./binary-no-extensions",
+      "hostname": "sitea.com",
+      "staticOpts": {
+        "extensions": ["html", "png", "pdf"]
+      }
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractUrlsPlugin",
+        "selectorPairs": [
+          { 
+            "urlSelector": "a"
+          },
+          { 
+            "urlSelector": "img"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/",
+      "contentType": "text/html",
+      "content": null,
+      "parent": null
+    },
+    {
+      "url": "http://sitea.com/imgA-150",
+      "contentType": "image/png",
+      "content": null,
+      "parent": {
+        "imgAlt":"img A"
+      }
+    },
+    {
+      "url": "http://sitea.com/pdfA-150",
+      "contentType": "application/pdf",
+      "content": null,
+      "blob": {},
+      "parent": {
+        "linkText":"pdf A"
+      }
+    }
+  ],
+
+  "archiveEntries": [
+    "img A.png",
+    "pdf A.pdf"
+  ]
+}
