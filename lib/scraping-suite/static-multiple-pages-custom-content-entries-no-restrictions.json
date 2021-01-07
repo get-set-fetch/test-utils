@@ -18,11 +18,11 @@
         "selectorPairs": [
           {
             "contentSelector": "h1",
-            "property": "title"
+            "contentProperty": "title"
           },
           {
             "contentSelector": "p.classA",
-            "property": "data-p"
+            "contentProperty": "data-p"
           }
         ]
       }
