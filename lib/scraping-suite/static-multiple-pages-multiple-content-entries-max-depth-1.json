@@ -21,10 +21,10 @@
         "name": "ExtractHtmlContentPlugin",
         "selectorPairs": [
           {
-            "selector": "h1"
+            "contentSelector": "h1"
           },
           {
-            "selector": "p.classA"
+            "contentSelector": "p.classA"
           }
         ]
       }

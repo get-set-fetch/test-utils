@@ -17,10 +17,10 @@
         "name": "ExtractHtmlContentPlugin",
         "selectorPairs": [
           {
-            "selector": "table#t tr td:nth-child(1)"
+            "contentSelector": "table#t tr td:nth-child(1)"
           },
           {
-            "selector": "table#t tr td:nth-child(2)"
+            "contentSelector": "table#t tr td:nth-child(2)"
           }
         ]
       }

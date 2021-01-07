@@ -17,11 +17,11 @@
         "name": "ExtractHtmlContentPlugin",
         "selectorPairs": [
           {
-            "selector": "h1",
+            "contentSelector": "h1",
             "property": "title"
           },
           {
-            "selector": "p.classA",
+            "contentSelector": "p.classA",
             "property": "data-p"
           }
         ]
