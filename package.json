@@ -1,13 +1,16 @@
 {
   "name": "get-set-fetch-test-utils",
   "version": "0.2.0",
-  "description": "get-set-fetch-test-utils",
-  "main": "lib/index.ts",
+  "description": "scraping test definitions, launches resources to be scraped under a configurable web server",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "test": "mocha --config test/.mocharc.js \"test/**/*.ts\""
+    "test": "mocha --config test/.mocharc.js \"test/**/*.ts\"",
+    "prebuild": "mkdir dist && cp -R lib/scraping-suite dist/scraping-suite && rm dist/scraping-suite/ScrapingSuite.ts",
+    "build": "tsc"
   },
   "author": {
     "name": "Andrei Sabau"
