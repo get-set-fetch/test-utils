@@ -1,9 +1,18 @@
 {
     "compilerOptions": {
-        "target": "ES2017",
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "target": "esnext",
         "strict": false,
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true
+        "module": "commonjs",
+        "allowJs": true,
+        "rootDir": "lib",
+        "outDir": "dist",
+        "declaration": true,
+        "newLine": "LF"
     },
-    "newLine": "LF",
+    "include": [
+        "lib"
+    ],
 }
