@@ -18,7 +18,7 @@ describe('ScrapingSuite', () => {
           name: "ExtractHtmlContentPlugin",
           selectorPairs: [
             {
-              selector: "h1"
+              contentSelector: "h1"
             }
           ]
         }
