@@ -1,7 +1,8 @@
 {
   "name": "get-set-fetch-test-utils",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "scraping test definitions, launches resources to be scraped under a configurable web server",
+  "keywords": ["scraping", "test definition"],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -16,6 +17,11 @@
     "name": "Andrei Sabau"
   },
   "license": "MIT",
+  "homepage": "https://github.com/get-set-fetch/test-utils",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/get-set-fetch/test-utils.git"
+  },
   "devDependencies": {
     "@types/connect": "^3.4.33",
     "@types/jszip": "^3.4.1",
