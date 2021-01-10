@@ -8,6 +8,12 @@
 
 # test-utils
 
-scraping test definitions, launches resources to be scraped under a configurable web server
+Contains scraping test definitions:
+- used as acceptance tests in [gsf node.js scraper](https://github.com/get-set-fetch/scraper)
+- soon to be used as acceptance tests in [gsf extension scraper](https://github.com/get-set-fetch/extension)
+
+Launches resources to be scraped under a configurable web server.
+
+
 
 
