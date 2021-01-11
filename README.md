@@ -12,6 +12,8 @@ Contains scraping test definitions:
 - used as acceptance tests in [gsf node.js scraper](https://github.com/get-set-fetch/scraper)
 - soon to be used as acceptance tests in [gsf extension scraper](https://github.com/get-set-fetch/extension)
 
+You can find the test definitions under [/lib/scraping-suite](https://github.com/get-set-fetch/test-utils/tree/main/lib/scraping-suite).
+
 Launches resources to be scraped under a configurable web server.
 
 
