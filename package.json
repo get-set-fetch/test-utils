@@ -3,15 +3,18 @@
   "version": "0.3.0",
   "description": "scraping test definitions, launches resources to be scraped under a configurable web server",
   "keywords": ["scraping", "test definition"],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
   "files": [
     "dist"
   ],
+  "module": "dist/esm/index.js",
   "scripts": {
     "test": "mocha --config test/.mocharc.js \"test/**/*.ts\"",
-    "prebuild": "mkdir dist && cp -R lib/scraping-suite dist/scraping-suite && rm dist/scraping-suite/ScrapingSuite.ts",
-    "build": "tsc"
+    "prebuild": "mkdir dist && npm run prebuild:cjs && npm run prebuild:esm",
+    "prebuild:cjs": "mkdir dist/cjs && cp -R lib/scraping-suite dist/cjs/scraping-suite && rm dist/cjs/scraping-suite/ScrapingSuite.ts",
+    "prebuild:esm": "mkdir dist/esm && cp -R lib/scraping-suite dist/esm/scraping-suite && rm dist/esm/scraping-suite/ScrapingSuite.ts",
+    "build": "tsc --project tsconfig.json && tsc --project tsconfig.esm.json"
   },
   "author": {
     "name": "Andrei Sabau"

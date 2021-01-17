@@ -8,7 +8,7 @@
         "module": "commonjs",
         "allowJs": true,
         "rootDir": "lib",
-        "outDir": "dist",
+        "outDir": "dist/cjs",
         "declaration": true,
         "newLine": "LF"
     },
