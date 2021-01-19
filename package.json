@@ -2,7 +2,10 @@
   "name": "@get-set-fetch/test-utils",
   "version": "0.3.2",
   "description": "scraping test definitions, launches resources to be scraped under a configurable web server",
-  "keywords": ["scraping", "test definition"],
+  "keywords": [
+    "scraping",
+    "test definition"
+  ],
   "main": "dist/cjs/index.js",
   "types": "dist/cjs/index.d.ts",
   "files": [
@@ -22,8 +25,8 @@
   "license": "MIT",
   "homepage": "https://github.com/get-set-fetch/test-utils",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/get-set-fetch/test-utils.git"
+    "type": "git",
+    "url": "https://github.com/get-set-fetch/test-utils.git"
   },
   "devDependencies": {
     "@types/connect": "^3.4.33",
@@ -39,7 +42,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "connect": "^3.7.0",
-    "jszip": "^3.5.0",
+    "jszip": "https://github.com/Stuk/jszip#3db5fdc",
     "serve-static": "^1.14.1",
     "vhost": "^3.0.2"
   }
