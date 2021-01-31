@@ -63,18 +63,25 @@ export default class ScrapingSuite {
       const checkObjProps = ["parent"];
 
       checkScalarProps.forEach(scalarProp => {
-        assert.strictEqual(actualResource[scalarProp], expectedResource[scalarProp], `${scalarProp} scalar doesn't match`);
+        if (expectedResource.hasOwnProperty(scalarProp)) {
+          assert.strictEqual(actualResource[scalarProp], expectedResource[scalarProp], `${expectedResource.url} - ${scalarProp} scalar doesn't match`);
+        }
       });
 
       checkObjProps.forEach(objProp => {
-        if (expectedResource[objProp]) {
-          assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${objProp} obj doesn't match`);
+        if (expectedResource.hasOwnProperty(objProp)) {
+          assert.deepEqual(actualResource[objProp], expectedResource[objProp], `${expectedResource.url} - ${objProp} obj doesn't match`);
         }
       });
 
       checkArrayProps.forEach(arrayProp => {
-        if (expectedResource[arrayProp]) {
-          assert.sameDeepMembers(actualResource[arrayProp], expectedResource[arrayProp], `${arrayProp} array doesn't match`);
+        if (expectedResource.hasOwnProperty(arrayProp)) {
+          if (!expectedResource[arrayProp]) {
+            assert.strictEqual(actualResource[arrayProp], expectedResource[arrayProp], `${expectedResource.url} - ${arrayProp} array doesn't match`);
+          }
+          else {
+            assert.sameDeepMembers(actualResource[arrayProp], expectedResource[arrayProp], `${expectedResource.url} - ${arrayProp} array doesn't match`);
+          }
         }
       });
     });

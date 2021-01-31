@@ -33,7 +33,7 @@
     {
       "url": "http://sitea.com/scroll-contentA.html",
       "contentType": "text/html",
-      "content": null,
+      "content": [],
       "actions": null
     },
     {
