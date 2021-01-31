@@ -1,0 +1,35 @@
+
+{
+  "title": "Static - Status - 404 Not Found - Html",
+  
+  "vhosts": [
+    {
+      "root": "./status",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/missing.html",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "contentSelector": "h1"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/missing.html",
+      "contentType": null,
+      "content": null,
+      "status": 404
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+
+{
+  "title": "Static - Status - 301 Redirect - Binary",
+  
+  "vhosts": [
+    {
+      "root": "./status",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/redirect-imgA-150.png",
+    "scenario": "static-content"
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/redirect-imgA-150.png",
+      "contentType": null,
+      "content": null,
+      "status": 301
+    },
+    {
+      "url": "http://sitea.com/imgA-150.png",
+      "contentType": "image/png",
+      "content": null,
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+
+{
+  "title": "Static - Status - 200 OK - Binary",
+  
+  "vhosts": [
+    {
+      "root": "./status",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/imgA-150.png",
+    "scenario": "static-content"
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/imgA-150.png",
+      "contentType": "image/png",
+      "status": 200
+    }
+  ]
+}

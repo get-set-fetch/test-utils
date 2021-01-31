@@ -1,0 +1,35 @@
+
+{
+  "title": "Static - Status - 200 OK - Html",
+  
+  "vhosts": [
+    {
+      "root": "./status",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/pageA.html",
+    "scenario": "static-content",
+    "pluginOpts": [
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "contentSelector": "h1"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/pageA.html",
+      "contentType": "text/html",
+      "content": [ [ "pageA redirect" ] ],
+      "status": 200
+    }
+  ]
+}

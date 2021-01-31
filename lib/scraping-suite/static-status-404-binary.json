@@ -1,0 +1,25 @@
+
+{
+  "title": "Static - Status - 404 Not Found - Binary",
+  
+  "vhosts": [
+    {
+      "root": "./status",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/missing.png",
+    "scenario": "static-content"
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/missing.png",
+      "contentType": null,
+      "content": null,
+      "status": 404
+    }
+  ]
+}

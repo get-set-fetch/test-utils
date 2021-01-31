@@ -1,10 +1,10 @@
 
 {
-  "title": "Static - Redirect",
+  "title": "Static - Status - 301 Redirect - Html",
   
   "vhosts": [
     {
-      "root": "./redirect",
+      "root": "./status",
       "hostname": "sitea.com"
     }
   ],
@@ -28,12 +28,14 @@
     {
       "url": "http://sitea.com/redirect-pageA.html",
       "contentType": null,
-      "content": null
+      "content": null,
+      "status": 301
     },
     {
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
-      "content": [ [ "pageA redirect" ] ]
+      "content": [ [ "pageA redirect" ] ],
+      "status": 304
     }
   ]
 }

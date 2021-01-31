@@ -18,6 +18,7 @@ export interface IScrapingResource {
   contentType: string;
   content: string[][];
   actions: string[];
+  status: number;
 }
 
 export interface IScrapingTest {
@@ -58,7 +59,7 @@ export default class ScrapingSuite {
       });
       if (!actualResource) throw new Error(`url ${expectedResource.url}, actions ${expectedResource.actions} not scraped`);
 
-      const checkScalarProps = ["contentType" ];
+      const checkScalarProps = ["contentType", "status" ];
       const checkArrayProps = ["content"]
       const checkObjProps = ["parent"];
 
