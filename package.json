@@ -29,6 +29,7 @@
     "url": "https://github.com/get-set-fetch/test-utils.git"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.14",
     "@types/connect": "^3.4.33",
     "@types/jszip": "^3.4.1",
     "@types/mocha": "^8.0.3",
