@@ -14,7 +14,7 @@
   
   "definition": {
     "url": "http://sitea.com",
-    "scenario": "static-content",
+    "scenarios": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractUrlsPlugin",

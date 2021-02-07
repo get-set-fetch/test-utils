@@ -15,7 +15,7 @@
   
   "definition": {
     "url": "http://sitea.com/cors.html",
-    "scenario": "static-content",
+    "scenarios": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractUrlsPlugin",

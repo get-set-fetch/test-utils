@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/redirect-pageA.html",
-    "scenario": "static-content",
+    "scenarios": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractHtmlContentPlugin",
@@ -35,7 +35,7 @@
       "url": "http://sitea.com/pageA.html",
       "contentType": "text/html",
       "content": [ [ "pageA redirect" ] ],
-      "status": 304
+      "status": 200
     }
   ]
 }

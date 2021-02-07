@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/missing.html",
-    "scenario": "static-content",
+    "scenarios": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractHtmlContentPlugin",

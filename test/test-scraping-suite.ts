@@ -1,18 +1,19 @@
 import assert from 'assert';
 import { ScrapingSuite } from '../lib';
+import { IScrapingDefinition } from '../lib/scraping-suite/ScrapingSuite';
 
 describe('ScrapingSuite', () => {
-  it('getTests', () => {
+  it('getTests - count', () => {
     const tests = ScrapingSuite.getTests();
-    assert.strictEqual(tests.length >= 18, true);
+    assert.strictEqual(tests.length >= 28, true);
   });
 
-  it('getTests', () => {
-    const redirectTest = ScrapingSuite.getTests().find(test => test.title === 'Static - Redirect');
+  it('getTests - definition', () => {
+    const redirectTest = ScrapingSuite.getTests().find(test => test.title === 'Static - Status - 301 Redirect - Html');
 
-    const expectedDefinition = {
+    const expectedDefinition:IScrapingDefinition = {
       url: "http://sitea.com/redirect-pageA.html",
-      scenario: "static-content",
+      scenarios: ["browser-static-content", "dom-static-content"],
       pluginOpts: [
         {
           name: "ExtractHtmlContentPlugin",

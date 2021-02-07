@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/scroll-contentA.html",
-    "scenario": "static-content",
+    "scenarios": ["browser-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractHtmlContentPlugin",
