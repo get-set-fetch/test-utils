@@ -1,6 +1,6 @@
 {
   "name": "@get-set-fetch/test-utils",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "description": "scraping test definitions, launches resources to be scraped under a configurable web server",
   "keywords": [
     "scraping",
