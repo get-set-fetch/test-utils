@@ -1,0 +1,40 @@
+
+{
+  "title": "Dynamic - Stability Check - Failure",
+  
+  "vhosts": [
+    {
+      "root": "./stability",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/stability-check-failure.html",
+    "scenarios": ["browser-static-content"],
+    "pluginOpts": [
+      {
+        "name": "BrowserFetchPlugin",
+        "stabilityCheck": 1000,
+        "stabilityTimeout": 1500
+      },
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "contentSelector": "p.entry span"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/stability-check-failure.html",
+      "contentType": null,
+      "content": null,
+      "actions": null
+    }
+  ]
+}

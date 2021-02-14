@@ -1,0 +1,40 @@
+
+{
+  "title": "Dynamic - Stability Check - Success - DOM Writes",
+  
+  "vhosts": [
+    {
+      "root": "./stability",
+      "hostname": "sitea.com"
+    }
+  ],
+  
+  "definition": {
+    "url": "http://sitea.com/stability-check-success-dom-writes.html",
+    "scenarios": ["browser-static-content"],
+    "pluginOpts": [
+      {
+        "name": "BrowserFetchPlugin",
+        "stabilityCheck": 1000,
+        "stabilityTimeout": 3000
+      },
+      {
+        "name": "ExtractHtmlContentPlugin",
+        "selectorPairs": [
+          {
+            "contentSelector": "p.entry span"
+          }
+        ]
+      }
+    ]
+  },
+
+  "resources": [
+    {
+      "url": "http://sitea.com/stability-check-success-dom-writes.html",
+      "contentType": "text/html",
+      "content": [["contentA-0"], ["contentA-1"], ["contentA-2"]],
+      "actions": null
+    }
+  ]
+}

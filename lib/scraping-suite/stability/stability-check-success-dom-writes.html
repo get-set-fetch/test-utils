@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>stability check success dom writes</title>
+</head>
+
+<body>
+  <p>loading content</p>
+
+  <div id="content" />
+</body>
+<script>
+  // lazyload some content to the bottom of the page with a timeout simulating server side call delay
+  const loadMax = 3;
+  let loadNo = 0;
+
+  function appendData() {
+    let html = `
+    <p class="entry">
+      <span>contentA-${loadNo}</h5>
+    </p>`;
+
+    document.getElementById("content").innerHTML += html;
+    loadNo += 1;
+    if (loadNo < loadMax) {
+      setTimeout(appendData, 500);
+    }
+  }
+
+  setTimeout(appendData, 500);
+</script>
+
+</html>

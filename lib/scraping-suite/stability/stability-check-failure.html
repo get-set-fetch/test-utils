@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>stability check failure</title>
+</head>
+
+<body>
+  <p>loading content</p>
+
+  <div id="content" />
+</body>
+<script>
+  function appendData() {
+    let html = `
+    <p class="entry">
+      <span>contentA</h5>
+    </p>`;
+
+    document.getElementById("content").innerHTML += html;
+    
+    // don't stop adding content
+    setTimeout(appendData, 500);
+  }
+
+  setTimeout(appendData, 500);
+</script>
+
+</html>
