@@ -19,7 +19,7 @@
     // window.pageYOffset varies, not integer, take this into account
     const scrollToBottom = Math.abs(document.body.scrollHeight - (window.pageYOffset + document.body.clientHeight));
     if (loadNo < loadMax && scrollToBottom < 1) {
-      setTimeout(appendData, 1000);
+      setTimeout(appendData, 500);
     }
   };
 

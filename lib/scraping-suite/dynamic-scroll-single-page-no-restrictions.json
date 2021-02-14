@@ -24,7 +24,7 @@
       {
         "name": "ScrollPlugin",
         "after": "UpsertResourcePlugin",
-        "stabilityCheck": 200
+        "stabilityCheck": 1000
       }
     ]
   },
