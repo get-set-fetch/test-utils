@@ -6,7 +6,7 @@ import {IVirtualHost} from '../server/GsfServer';
 
 export interface IScrapingDefinition {
   url: string;
-  scenarios: string[];
+  pipelines: string[];
   pluginOpts: {
     name: string;
     [key: string]: any;

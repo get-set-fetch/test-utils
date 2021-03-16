@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/incomplete-table-nested-elements.html",
-    "scenarios": ["browser-static-content", "dom-static-content"],
+    "pipelines": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
         "name": "ExtractHtmlContentPlugin",

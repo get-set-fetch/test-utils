@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/missing.png",
-    "scenarios": ["browser-static-content", "dom-static-content"]
+    "pipelines": ["browser-static-content", "dom-static-content"]
   },
 
   "resources": [

@@ -13,7 +13,7 @@ describe('ScrapingSuite', () => {
 
     const expectedDefinition:IScrapingDefinition = {
       url: "http://sitea.com/redirect-pageA.html",
-      scenarios: ["browser-static-content", "dom-static-content"],
+      pipelines: ["browser-static-content", "dom-static-content"],
       pluginOpts: [
         {
           name: "ExtractHtmlContentPlugin",

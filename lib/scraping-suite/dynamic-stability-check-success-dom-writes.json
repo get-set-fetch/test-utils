@@ -11,7 +11,7 @@
   
   "definition": {
     "url": "http://sitea.com/stability-check-success-dom-writes.html",
-    "scenarios": ["browser-static-content"],
+    "pipelines": ["browser-static-content"],
     "pluginOpts": [
       {
         "name": "BrowserFetchPlugin",
