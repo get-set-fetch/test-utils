@@ -10,7 +10,7 @@
   ],
   
   "definition": {
-    "url": "http://sitea.com/index.html",
+    "name": "sitea.com",
     "pipelines": ["browser-static-content", "dom-static-content"],
     "pluginOpts": [
       {
@@ -30,6 +30,9 @@
         "selectorPairs": [
         ]
       }
+    ],
+    "resources": [
+      {"url": "http://sitea.com/index.html"}
     ]
   },
 

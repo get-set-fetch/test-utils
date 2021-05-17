@@ -10,7 +10,7 @@
   ],
   
   "definition": {
-    "url": "http://sitea.com/stability-check-failure.html",
+    "name": "sitea.com",
     "pipelines": ["browser-static-content"],
     "pluginOpts": [
       {
@@ -26,6 +26,9 @@
           }
         ]
       }
+    ],
+    "resources": [
+      {"url": "http://sitea.com/stability-check-failure.html"}
     ]
   },
 

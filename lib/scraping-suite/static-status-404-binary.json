@@ -10,8 +10,11 @@
   ],
   
   "definition": {
-    "url": "http://sitea.com/missing.png",
-    "pipelines": ["browser-static-content", "dom-static-content"]
+    "name": "sitea.com",
+    "pipelines": ["browser-static-content", "dom-static-content"],
+    "resources": [
+      {"url": "http://sitea.com/missing.png"}
+    ]
   },
 
   "resources": [

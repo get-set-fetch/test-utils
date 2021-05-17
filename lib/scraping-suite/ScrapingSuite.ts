@@ -5,12 +5,12 @@ import JSZip from 'jszip';
 import {IVirtualHost} from '../server/GsfServer';
 
 export interface IScrapingDefinition {
-  url: string;
   pipelines: string[];
   pluginOpts: {
     name: string;
     [key: string]: any;
   }[];
+  resources: {url: string, depth?: number}[];
 }
 
 export interface IScrapingResource {
