@@ -16,7 +16,7 @@ describe('ScrapingSuite', () => {
     const redirectTest = ScrapingSuite.getTests().find(test => test.title === 'Static - Status - 301 Redirect - Html');
 
     const expectedDefinition:IScrapingDefinition = {
-      url: "http://sitea.com/redirect-pageA.html",
+      name: "sitea.com",
       pipelines: ["browser-static-content", "dom-static-content"],
       pluginOpts: [
         {
@@ -26,6 +26,11 @@ describe('ScrapingSuite', () => {
               contentSelector: "h1"
             }
           ]
+        }
+      ],
+      resources: [
+        {
+          url: "http://sitea.com/redirect-pageA.html"
         }
       ]
     };

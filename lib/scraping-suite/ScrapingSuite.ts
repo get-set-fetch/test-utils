@@ -5,6 +5,7 @@ import JSZip from 'jszip';
 import {IVirtualHost} from '../server/GsfServer';
 
 export interface IScrapingDefinition {
+  name: string;
   pipelines: string[];
   pluginOpts: {
     name: string;
