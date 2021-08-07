@@ -14,13 +14,15 @@ export interface IVirtualHost {
 
 export interface IServerOpts {
   rootDir: string;
-  httpPort?: number;
-  httpsPort?: number;
+  host: string;
+  httpPort: number;
+  httpsPort: number;
   serveStaticOpts?: Map<string, serveStatic.ServeStaticOptions>;
   tlsDir: string;
 }
 
 export default class GsfServer {
+  host: string;
   httpPort: number;
   httpsPort: number;
 
@@ -28,20 +30,26 @@ export default class GsfServer {
   http: http.Server;
 
   constructor({
+    // avoid listening on unspecified ip address 0.0.0.0
+    host = '127.0.0.1',
     httpPort = 8080,
     httpsPort = 8443,
-  }:Partial<IServerOpts> = {}) {
+  }: Partial<IServerOpts> = {}) {
+    this.host = host;
     this.httpPort = httpPort;
     this.httpsPort = httpsPort;
   }
 
   start() {
-    this.http=http.createServer(
+    this.http = http.createServer(
       (req, res) => {
         if (!this.connApp) throw new Error('no virtualhosts definition found!')
         return this.connApp(req, res);
       }
-    ).listen(this.httpPort);
+    ).listen({
+      host: this.host,
+      port: this.httpPort
+    });
     console.log(`http server started on port ${this.httpPort}`);
   }
 
@@ -80,10 +88,10 @@ export default class GsfServer {
     return (req: IncomingMessage, res: ServerResponse, next: connect.NextFunction) => {
       // handle only gzip compression for existing files with extension
       if (
-        /gzip/.test(req.headers["accept-encoding"].toString()) 
+        /gzip/.test(req.headers["accept-encoding"].toString())
         && fs.existsSync(path.join(rootDir, req.url))
         && path.basename(path.join(rootDir, req.url)).split(".").length === 2
-        ) {
+      ) {
         const ext = path.basename(path.join(rootDir, req.url)).split(".")[1];
         let contentType;
         switch (ext) {
