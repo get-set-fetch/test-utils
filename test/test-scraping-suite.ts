@@ -15,7 +15,7 @@ describe('ScrapingSuite', () => {
   it('getTests - definition', () => {
     const redirectTest = ScrapingSuite.getTests().find(test => test.title === 'Static - Status - 301 Redirect - Html');
 
-    const expectedDefinition:IScrapingDefinition = {
+    const expectedDefinition: IScrapingDefinition = {
       name: "sitea.com",
       pipelines: ["browser-static-content", "dom-static-content"],
       pluginOpts: [
@@ -41,25 +41,25 @@ describe('ScrapingSuite', () => {
   it('serve static compressed', async () => {
     const srv = new GsfServer();
     srv.start();
-    
-    srv.update([{root: path.join(__dirname, 'resources'), hostname: "sitea.com"}]);
 
-    let resHeaders:http.IncomingHttpHeaders;
+    srv.update([{ root: path.join(__dirname, 'resources'), hostname: "sitea.com" }]);
 
-    const result:Buffer = await new Promise((resolve, reject) => {
-      const req = http.request({ 
+    let resHeaders: http.IncomingHttpHeaders;
+
+    const result: Buffer = await new Promise((resolve, reject) => {
+      const req = http.request({
         method: "GET",
-        host: '127.0.0.1', 
-        port: 8080, 
-        path: '/pageA.html', 
-        headers: { 
-          Host: 'sitea.com', 
+        host: '127.0.0.1',
+        port: 8080,
+        path: '/pageA.html',
+        headers: {
+          Host: 'sitea.com',
           'Accept-Encoding': 'gzip'
         }
       });
 
-      let chunks:Buffer[] = [];
-  
+      let chunks: Buffer[] = [];
+
       req.on('response', (response) => {
         resHeaders = response.headers;
         const output = new Writable({
@@ -68,16 +68,16 @@ describe('ScrapingSuite', () => {
             done();
           },
         });
-      
+
         const onComplete = (err) => {
           if (err) {
-            reject (err);
+            reject(err);
           }
           else {
             resolve(Buffer.concat(chunks))
           }
         };
-      
+
         pipeline(response, zlib.createGunzip(), output, onComplete);
       });
 
@@ -89,7 +89,7 @@ describe('ScrapingSuite', () => {
       'content-type': 'text/html',
     });
     assert.strictEqual(result.toString("utf8"), '<body><p>a</p></body>');
-    
+
     srv.stop();
   })
 
